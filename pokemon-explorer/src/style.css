@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+#pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.pokemon-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 150px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+}
