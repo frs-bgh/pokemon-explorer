@@ -3,7 +3,7 @@
 const pokemonList = document.getElementById('pokemon-list');
 
 async function fetchPokemonList() {
-  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
+  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=30');
   const data = await response.json();
   const pokemons = data.results;
 
