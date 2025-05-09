@@ -39,6 +39,7 @@ const showPokemonDetails = async (id) => {
     (entry) => entry.language.name === "en"
   );
 
+
   detailSection.innerHTML = `
     <h2>${detailData.name}</h2>
     <img src="${detailData.sprites.front_default}" alt="${detailData.name}" />
@@ -48,6 +49,8 @@ const showPokemonDetails = async (id) => {
     <p><strong>Abilities:</strong> ${detailData.abilities.map(a => a.ability.name).join(", ")}</p>
     <p><strong>Beschrijving:</strong> ${flavor ? flavor.flavor_text.replace(/\f|\n/g, ' ') : "Geen beschrijving beschikbaar."}</p>
   `;
+
+  detailSection.scrollIntoView({ behavior: "smooth" });
 };
 
 getPokemonList();
