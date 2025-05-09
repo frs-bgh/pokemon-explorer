@@ -8,7 +8,8 @@ Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI.
 3) Gebruikt async/await om de data asynchroon op te halen
 4) Past DOM-manipulatie toe om kaarten dynamisch aan de pagina toe te voegen
 5) Project werd gestructureerd met Vite als build tool 
-6) GitHub-repository met nette structuur en eerste commit
+6) Detailsectie met extra info bij klik (type, gewicht, abilities…)
+7) Gekleurde type-badges per Pokémon
 
 
 ## Gebruikte technologieën:
@@ -35,5 +36,5 @@ Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI.
 ## Gebruikte bronnen 
 PokéAPI --> https://pokeapi.co/api/v2/pokemon?limit=30
 ChatGPT (AI assistentie voor structuur en foutopsporing)
-https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-https://prismic.io/blog/css-image-effects
+MDN scrollIntoView --> https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+Prismic Blog: CSS Image Effects --> https://prismic.io/blog/css-image-effects
