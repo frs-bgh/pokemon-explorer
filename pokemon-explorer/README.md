@@ -35,3 +35,5 @@ Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI.
 ## Gebruikte bronnen 
 PokéAPI --> https://pokeapi.co/api/v2/pokemon?limit=30
 ChatGPT (AI assistentie voor structuur en foutopsporing)
+https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+https://prismic.io/blog/css-image-effects

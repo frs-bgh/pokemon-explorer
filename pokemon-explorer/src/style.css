@@ -3,6 +3,13 @@ body {
   padding: 2rem;
 }
 
+#pokemon-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
+  gap: 20px; /* ruimte tussen de kaarten */
+  padding: 20px;
+}
+
 #pokemon-list {
   display: flex;
   flex-wrap: wrap;
@@ -12,14 +19,65 @@ body {
 }
 
 .pokemon-card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  width: 150px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  margin: 0; /* Geen extra marge nodig met grid */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   text-align: center;
-  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
 }
 
 .pokemon-card img {
   width: 100px;
   height: 100px;
 }
+
+#pokemon-detail {
+  background-color: #f0f8ff;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#pokemon-detail img {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* Kleur per type */
+.normal { background-color: rgb(205, 205, 148); }
+.fire { background-color: orange; }
+.water { background-color: rgb(117, 201, 229); }
+.grass { background-color: rgb(124, 172, 124); }
+.electric { background-color: rgb(213, 213, 82); }
+.ice { background-color: rgb(99, 196, 209); }
+.fighting { background-color: red; }
+.poison { background-color: rgb(144, 38, 144); }
+.ground { background-color: rgb(100, 41, 41); }
+.flying { background-color: rgb(255, 187, 255); }
+.psychic { background-color: #F85888; }
+.bug { background-color: rgb(140, 249, 140); }
+.rock { background-color: rgb(95, 82, 82); }
+.ghost { background-color: rgb(128, 126, 128); }
+.dragon { background-color: rgb(105, 0, 105); }
+.dark { background-color: rgb(57, 26, 104); }
+.steel { background-color: gray; }
+.fairy { background-color: rosybrown; }
