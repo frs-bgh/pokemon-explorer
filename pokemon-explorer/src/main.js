@@ -16,9 +16,44 @@ const getPokemonList = async () => {
     card.dataset.id = pokeData.id;
 
     card.innerHTML = `
-      <img src="${pokeData.sprites.front_default}" alt="${pokeData.name}" />
-      <h3>${pokeData.name}</h3>
-    `;
+  <img src="${pokeData.sprites.front_default}" alt="${pokeData.name}" />
+  <h3>${pokeData.name}</h3>
+  <svg class="fav-btn" data-id="${pokeData.id}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="grey" width="24" height="24">
+    <path d="M12 .587l3.668 7.431L24 9.748l-6 5.843L19.335 24 12 19.897 4.665 24 6 15.591 0 9.748l8.332-1.73z"/>
+  </svg>
+`;
+
+//#region favoriet knop 
+
+var favBtn = card.querySelector(".fav-btn");
+
+favBtn.addEventListener("click", function(e) {
+  e.stopPropagation();
+
+  var pokemonName = pokeData.name;
+
+  var favorites = localStorage.getItem("favorites");
+  if (!favorites) {
+    favorites = { list: [] };
+  } else {
+    favorites = JSON.parse(favorites);
+  }
+
+  var index = favorites.list.indexOf(pokemonName);
+
+  if (index === -1) {
+    favorites.list.push(pokemonName);
+    favBtn.classList.add("active");
+  } else {
+    favorites.list.splice(index, 1);
+    favBtn.classList.remove("active");
+  }
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+});
+
+//#endregion
+
 
     card.addEventListener("click", () => {
       showPokemonDetails(pokeData.id);
@@ -65,6 +100,9 @@ const showPokemonDetails = async (id) => {
     <p><strong>Abilities:</strong> ${detailData.abilities.map(a => a.ability.name).join(", ")}</p>
     <p><strong>Beschrijving:</strong> ${flavor ? flavor.flavor_text.replace(/\f|\n/g, ' ') : "Geen beschrijving beschikbaar."}</p>
   `;
+
+  
+
 
   detailSection.scrollIntoView({ behavior: "smooth" });
 };

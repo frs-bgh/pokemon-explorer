@@ -10,6 +10,8 @@ Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI.
 5) Project werd gestructureerd met Vite als build tool 
 6) Detailsectie met extra info bij klik (type, gewicht, abilities…)
 7) Gekleurde type-badges per Pokémon
+8. Mogelijkheid om Pokémon als favoriet te markeren met klikbare ster
+
 
 
 ## Gebruikte technologieën:
@@ -38,3 +40,5 @@ PokéAPI --> https://pokeapi.co/api/v2/pokemon?limit=30
 ChatGPT (AI assistentie voor structuur en foutopsporing)
 MDN scrollIntoView --> https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
 Prismic Blog: CSS Image Effects --> https://prismic.io/blog/css-image-effects
+Add to favorites with JavaScript --> https://stackoverflow.com/questions/64830358/making-an-add-to-favorites-button-with-javascript 
+JavaScript multiple rating SVG star click --> https://stackoverflow.com/questions/66139955/javascript-multiple-rating-svg-star-click 

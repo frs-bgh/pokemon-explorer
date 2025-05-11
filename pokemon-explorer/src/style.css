@@ -81,3 +81,14 @@ body {
 .dark { background-color: rgb(57, 26, 104); }
 .steel { background-color: gray; }
 .fairy { background-color: rosybrown; }
+
+
+.fav-btn {
+  cursor: pointer;
+  transition: fill 0.3s ease;
+  margin-top: 5px;
+}
+
+.fav-btn.active {
+  fill: gold;
+}
