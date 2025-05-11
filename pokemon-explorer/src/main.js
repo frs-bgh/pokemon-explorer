@@ -41,15 +41,15 @@ const showPokemonDetails = async (id) => {
 
   // Voor de types, gekleurde badges
   // Gen1 pokémonshebben maar max. 2 types
-  let typBadges = "";
+  let typeBadges = "";
 
   if (detailData.types.length === 1) {
-  typBadges += `<span class="type-badge ${detailData.types[0].type.name}">${detailData.types[0].type.name}</span>`;
+  typeBadges += `<span class="type-badge ${detailData.types[0].type.name}">${detailData.types[0].type.name}</span>`;
   }
 
   if (detailData.types.length === 2) {
-  typBadges += `<span class="type-badge ${detailData.types[0].type.name}">${detailData.types[0].type.name}</span> `;
-  typBadges += `<span class="type-badge ${detailData.types[1].type.name}">${detailData.types[1].type.name}</span>`;
+  typeBadges += `<span class="type-badge ${detailData.types[0].type.name}">${detailData.types[0].type.name}</span> `;
+  typeBadges += `<span class="type-badge ${detailData.types[1].type.name}">${detailData.types[1].type.name}</span>`;
   }
 
 
@@ -59,7 +59,7 @@ const showPokemonDetails = async (id) => {
   detailSection.innerHTML = `
     <h2>${detailData.name}</h2>
     <img src="${detailData.sprites.front_default}" alt="${detailData.name}" />
-    <p><strong>Type:</strong> ${typBadges}</p>
+    <p><strong>Type:</strong> ${typeBadges}</p>
     <p><strong>Height:</strong> ${detailData.height / 10} m</p>
     <p><strong>Weight:</strong> ${detailData.weight / 10} kg</p>
     <p><strong>Abilities:</strong> ${detailData.abilities.map(a => a.ability.name).join(", ")}</p>
