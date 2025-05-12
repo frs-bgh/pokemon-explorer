@@ -15,6 +15,20 @@ const getPokemonList = async () => {
     card.classList.add("pokemon-card");
     card.dataset.id = pokeData.id;
 
+//#region De kaarten die al in de localStorage zitten al geel zetten wanneer je de pagina opent 
+    var savedFavorites = localStorage.getItem("favorites");
+if (savedFavorites) {
+  savedFavorites = JSON.parse(savedFavorites);
+  if (savedFavorites.list.some(fav => fav.name === pokeData.name)){
+    // ster direct in geel zetten
+    setTimeout(() => {
+      const favBtn = card.querySelector(".fav-btn");
+      if (favBtn) favBtn.classList.add("active");
+    }, 0); // ,0 zodat we zeker zijn dat de ster echt in het element zit 
+  }
+}
+//#endregion
+
     card.innerHTML = `
   <img src="${pokeData.sprites.front_default}" alt="${pokeData.name}" />
   <h3>${pokeData.name}</h3>
@@ -22,6 +36,7 @@ const getPokemonList = async () => {
     <path d="M12 .587l3.668 7.431L24 9.748l-6 5.843L19.335 24 12 19.897 4.665 24 6 15.591 0 9.748l8.332-1.73z"/>
   </svg>
 `;
+
 
 //#region favoriet knop 
 
@@ -39,15 +54,21 @@ favBtn.addEventListener("click", function(e) {
     favorites = JSON.parse(favorites);
   }
 
-  var index = favorites.list.indexOf(pokemonName);
-
+  var index = favorites.list.findIndex(function (item) {
+    return item.name === pokemonName;
+  });
+  
   if (index === -1) {
-    favorites.list.push(pokemonName);
+    favorites.list.push({
+      name: pokemonName,
+      sprite: pokeData.sprites.front_default
+    });
     favBtn.classList.add("active");
   } else {
     favorites.list.splice(index, 1);
     favBtn.classList.remove("active");
   }
+  
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
 });
@@ -108,3 +129,44 @@ const showPokemonDetails = async (id) => {
 };
 
 getPokemonList();
+
+
+document.getElementById("toggle-fav-list").addEventListener("click", function () {
+  var popup = document.getElementById("favorieten-popup");
+  popup.classList.toggle("hidden");
+
+  // lijst wordt upgedated telkens wanneer het geopend wordt
+  var favorites = localStorage.getItem("favorites");
+  var lijst = document.getElementById("favorieten-items");
+  lijst.innerHTML = "";
+
+  if (!favorites) {
+    lijst.innerHTML = "<li>Geen favorieten</li>";
+    return;
+  }
+
+  favorites = JSON.parse(favorites);
+  if (favorites.list.length === 0) {
+    lijst.innerHTML = "<li>Geen favorieten</li>";
+  } else {
+    favorites.list.forEach(function (pokemon) {
+      var li = document.createElement("li");
+      li.style.display = "flex";
+      li.style.alignItems = "center";
+      li.style.gap = "10px";
+    
+      var img = document.createElement("img");
+      img.src = pokemon.sprite;
+      img.alt = pokemon.name;
+      img.style.width = "32px";
+      img.style.height = "32px";
+    
+      var span = document.createElement("span");
+      span.textContent = pokemon.name;
+    
+      li.appendChild(img);
+      li.appendChild(span);
+      lijst.appendChild(li);
+    });
+  }
+});

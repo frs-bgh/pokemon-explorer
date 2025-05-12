@@ -10,7 +10,9 @@ Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI.
 5) Project werd gestructureerd met Vite als build tool 
 6) Detailsectie met extra info bij klik (type, gewicht, abilities…)
 7) Gekleurde type-badges per Pokémon
-8. Mogelijkheid om Pokémon als favoriet te markeren met klikbare ster
+8) Mogelijkheid om Pokémon als favoriet te markeren met klikbare ster
+9) Favorietenlijst zichtbaar via knop rechtsboven in de header
+10) Lijst toont pokemons met naam + afbeelding
 
 
 
@@ -20,6 +22,7 @@ Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI.
 - PokéAPI
 - Vite
 - GitHub
+- localStorage (voor favorieten)
 
 ## Stappen installatie:
 

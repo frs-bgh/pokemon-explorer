@@ -3,6 +3,7 @@ body {
   padding: 2rem;
 }
 
+
 #pokemon-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 kolommen */
@@ -92,3 +93,68 @@ body {
 .fav-btn.active {
   fill: gold;
 }
+
+
+.fav-btn {
+  cursor: pointer;
+  fill: grey;
+}
+
+#toggle-fav-list {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#favorieten-popup {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 10;
+}
+
+#favorieten-popup.hidden {
+  display: none;
+}
+
+#favorieten-popup ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#favorieten-popup li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.fav-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#toggle-fav-list {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
