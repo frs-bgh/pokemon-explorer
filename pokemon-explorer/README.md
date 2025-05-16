@@ -13,6 +13,7 @@ Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI.
 8) Mogelijkheid om Pokémon als favoriet te markeren met klikbare ster
 9) Favorietenlijst zichtbaar via knop rechtsboven in de header
 10) Lijst toont pokemons met naam + afbeelding
+11) Zoekbalk met suggesties met scrolltoview
 
 
 
