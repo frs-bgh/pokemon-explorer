@@ -9,11 +9,18 @@
   <body>
     <header class="top-bar">
       <h1>Pokémon Explorer</h1>
+
+      <div id="zoekbalk">
+        <input type="text" id="zoekinput" placeholder="Zoek een Pokémon of type...">
+        <ul id="zoeksuggesties"></ul>
+      </div>
+      
       <div class="fav-container">
         <button id="toggle-fav-list">
           <svg class="fav-btn active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold" width="20" height="20">
             <path d="M12 .587l3.668 7.431L24 9.748l-6 5.843L19.335 24 12 19.897 4.665 24 6 15.591 0 9.748l8.332-1.73z"/>
           </svg>
+          <span>Favorieten</span>
         </button>
         <div id="favorieten-popup" class="hidden">
           <h3>Jouw favorieten</h3>

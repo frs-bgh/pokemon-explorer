@@ -82,6 +82,8 @@ favBtn.addEventListener("click", function(e) {
 
     container.appendChild(card);
   });
+
+  
 };
 
 const showPokemonDetails = async (id) => {
@@ -169,4 +171,37 @@ document.getElementById("toggle-fav-list").addEventListener("click", function ()
       lijst.appendChild(li);
     });
   }
+
 });
+
+
+//#region zoekbalk
+const zoekinput = document.getElementById("zoekinput");
+const zoeksuggesties = document.getElementById("zoeksuggesties");
+
+zoekinput.addEventListener("input", function () {
+  const waarde = zoekinput.value.toLowerCase();
+  zoeksuggesties.innerHTML = "";
+
+  if (!waarde) return;
+
+  document.querySelectorAll(".pokemon-card").forEach(card => {
+    const naam = card.querySelector("h3").textContent.toLowerCase();
+    const types = Array.from(card.querySelectorAll(".type-badge")).map(b => b.textContent.toLowerCase());
+
+    if (naam.startsWith(waarde) || types.some(type => type.startsWith(waarde))) {
+      const li = document.createElement("li");
+      li.textContent = naam;
+
+      li.addEventListener("click", () => {
+        const id = card.dataset.id;
+        showPokemonDetails(id); // details laden & scrollen
+        zoekinput.value = "";
+        zoeksuggesties.innerHTML = "";
+      });
+
+      zoeksuggesties.appendChild(li);
+    }
+  });
+});
+//#endregion

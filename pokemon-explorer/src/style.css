@@ -11,22 +11,13 @@ body {
   padding: 20px;
 }
 
-#pokemon-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-}
-
 .pokemon-card {
   background-color: white;
   border-radius: 12px;
   padding: 15px;
-  margin: 0; /* Geen extra marge nodig met grid */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(42, 202, 255, 0.2);
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: 0.3s ease; /*https://stackoverflow.com/questions/57544099/transition-transform-ease-some-elements-easing-in-others-arent*/
   cursor: pointer;
 }
 
@@ -44,7 +35,6 @@ body {
   padding: 20px;
   margin-top: 40px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 #pokemon-detail img {
@@ -58,9 +48,7 @@ body {
   border-radius: 10px;
   color: white;
   font-weight: bold;
-  margin-right: 5px;
   text-transform: uppercase;
-  font-size: 0.85rem;
 }
 
 /* Kleur per type */
@@ -84,26 +72,15 @@ body {
 .fairy { background-color: rosybrown; }
 
 
-.fav-btn {
+.favbutton {
   cursor: pointer;
-  transition: fill 0.3s ease;
   margin-top: 5px;
 }
 
-.fav-btn.active {
+.favbutton.active {
   fill: gold;
 }
 
-
-.fav-btn {
-  cursor: pointer;
-  fill: grey;
-}
-
-#toggle-fav-list {
-  cursor: pointer;
-  font-weight: bold;
-}
 
 #favorieten-popup {
   position: absolute;
@@ -113,8 +90,7 @@ body {
   max-height: 200px;
   overflow-y: auto;
   background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 1px solid #22ca00;
   border-radius: 8px;
   padding: 10px;
   z-index: 10;
@@ -125,30 +101,26 @@ body {
 }
 
 #favorieten-popup ul {
-  list-style: none;
   padding-left: 0;
 }
 
 #favorieten-popup li {
   margin-bottom: 5px;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 
 .top-bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid black;
 }
 
 .fav-container {
   position: relative;
   display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 #toggle-fav-list {
@@ -156,5 +128,51 @@ body {
   border: none;
   cursor: pointer;
   padding: 5px;
+
+  cursor: pointer;
+  font-weight: bold;
 }
 
+#zoekbalk {
+  position: relative;
+  width: 280px;
+  margin: 0 auto 20px auto;
+}
+
+
+#zoekinput {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+}
+
+#zoeksuggesties {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgb(193, 193, 193);
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  width: 100%;
+}
+
+#zoeksuggesties li {
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+#zoeksuggesties li:hover {
+  background-color: #f3f3f3;
+}
