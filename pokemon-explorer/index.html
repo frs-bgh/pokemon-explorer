@@ -10,11 +10,43 @@
     <header class="top-bar">
       <h1>Pokémon Explorer</h1>
 
+<!-- begin zoekbalk -->
       <div id="zoekbalk">
         <input type="text" id="zoekinput" placeholder="Zoek een Pokémon of type...">
         <ul id="zoeksuggesties"></ul>
       </div>
-      
+<!-- einde zoekbalk -->
+
+<!-- begin filtermenu -->
+      <div id="filtermenu" style="display: flex; gap: 10px; margin-left: 20px;">
+        <select id="filterType">
+          <option value="alle">Type (alle)</option>
+          <option value="normal">Normal</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="grass">Grass</option>
+          <option value="electric">Electric</option>
+          <option value="poison">Poison</option>
+          <option value="ground">Ground</option>
+          <option value="flying">Flying</option>
+          <option value="bug">Bug</option>
+        </select>
+    
+        <select id="filterSize">
+          <option value="alle">Grootte (alle)</option>
+          <option value="klein">Kleiner dan 1m</option>
+          <option value="groot">Groter dan 1m</option>
+        </select>
+    
+        <select id="filterWeight">
+          <option value="alle">Gewicht (alle)</option>
+          <option value="licht">Lichter dan 10kg</option>
+          <option value="zwaar">Zwaarder dan 10kg</option>
+        </select>
+      </div>
+<!-- einde filtermenu -->
+
+<!-- begin lijst favorieten -->
       <div class="fav-container">
         <button id="toggle-fav-list">
           <svg class="fav-btn active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gold" width="20" height="20">
@@ -27,6 +59,8 @@
           <ul id="favorieten-items"></ul>
         </div>
       </div>
+<!-- einde lijst favorieten -->
+
     </header>
   
     <div id="pokemon-container"></div>

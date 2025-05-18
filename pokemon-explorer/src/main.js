@@ -29,9 +29,15 @@ if (savedFavorites) {
 }
 //#endregion
 
+card.dataset.height = pokeData.height / 10;
+card.dataset.weight = pokeData.weight / 10;
+
     card.innerHTML = `
   <img src="${pokeData.sprites.front_default}" alt="${pokeData.name}" />
   <h3>${pokeData.name}</h3>
+  <div class="type-badges">
+  ${pokeData.types.map(t => `<span class="type-badge ${t.type.name}">${t.type.name}</span>`).join("")}
+</div>
   <svg class="fav-btn" data-id="${pokeData.id}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="grey" width="24" height="24">
     <path d="M12 .587l3.668 7.431L24 9.748l-6 5.843L19.335 24 12 19.897 4.665 24 6 15.591 0 9.748l8.332-1.73z"/>
   </svg>
@@ -132,7 +138,7 @@ const showPokemonDetails = async (id) => {
 
 getPokemonList();
 
-
+//#region Favorieten knop + popup
 document.getElementById("toggle-fav-list").addEventListener("click", function () {
   var popup = document.getElementById("favorieten-popup");
   popup.classList.toggle("hidden");
@@ -173,7 +179,7 @@ document.getElementById("toggle-fav-list").addEventListener("click", function ()
   }
 
 });
-
+//#endregion
 
 //#region zoekbalk
 const zoekinput = document.getElementById("zoekinput");
@@ -189,7 +195,7 @@ zoekinput.addEventListener("input", function () {
     const naam = card.querySelector("h3").textContent.toLowerCase();
     const types = Array.from(card.querySelectorAll(".type-badge")).map(b => b.textContent.toLowerCase());
 
-    if (naam.startsWith(waarde) || types.some(type => type.startsWith(waarde))) {
+    if (naam.startsWith(waarde)) {
       const li = document.createElement("li");
       li.textContent = naam;
 
@@ -203,5 +209,44 @@ zoekinput.addEventListener("input", function () {
       zoeksuggesties.appendChild(li);
     }
   });
+});
+//#endregion
+
+
+//#region filterfunctionaliteit
+function pasFiltersToe() {
+  const gekozenType = document.getElementById("filterType").value;
+  const gekozenTaille = document.getElementById("filterSize").value;
+  const gekozenGewicht = document.getElementById("filterWeight").value;
+
+  document.querySelectorAll(".pokemon-card").forEach(card => {
+    const types = Array.from(card.querySelectorAll(".type-badge")).map(b => b.textContent.toLowerCase());
+    const height = parseFloat(card.dataset.height); // in meters
+    const weight = parseFloat(card.dataset.weight); // in kg
+
+    let zichtbaar = true;
+
+    if (gekozenType !== "alle" && !types.includes(gekozenType)) {
+      zichtbaar = false;
+    }
+
+    if (gekozenTaille === "klein" && height >= 1) {
+      zichtbaar = false;
+    } else if (gekozenTaille === "groot" && height < 1) {
+      zichtbaar = false;
+    }
+
+    if (gekozenGewicht === "licht" && weight >= 10) {
+      zichtbaar = false;
+    } else if (gekozenGewicht === "zwaar" && weight < 10) {
+      zichtbaar = false;
+    }
+
+    card.style.display = zichtbaar ? "block" : "none";
+  });
+}
+
+["filterType", "filterSize", "filterWeight"].forEach(id => {
+  document.getElementById(id).addEventListener("change", pasFiltersToe);
 });
 //#endregion
