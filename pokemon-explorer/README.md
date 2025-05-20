@@ -1,8 +1,9 @@
 # Pokémon Explorer 
-Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI. Deze applicatie maakt dus gebruik van de PokéAPI (https://pokeapi.co), een publieke API waarvoor geen sleutel nodig is. 
-Het is een single page webapplicatie waarmee de Pokemons kunt verkennen, filteren, zoeken en opslaan in je favorieten 
 
-## Wat doet mijn site? 
+Een webhapplicatie waarmee je 30 Pokémons kunt ontdekken via de API PokéAPI. Deze applicatie maakt dus gebruik van de PokéAPI (https://pokeapi.co), een publieke API waarvoor geen sleutel nodig is. 
+Het is een single page webapplicatie waarmee de Pokemons kunt verkennen, filteren, zoeken en opslaan in je favorietenlijst. De app werkt volledig zonder login of backend en bewaart data lokaal vie localStorage. 
+
+## I. Projectbeschrijving en functionaliteiten 
 
 1) Het haalt 30 Pokémons op via de API PokéAPI
 2) Toont elk Pokémon als een visuele kaart met naam, afbeelding en types
@@ -15,50 +16,13 @@ Het is een single page webapplicatie waarmee de Pokemons kunt verkennen, filtere
 9) Favorieten worden opgeslagen in localStorage en blijven dus bewaard
 10) Zoekbalk met suggesties met scrollToView (de pagina scrollt automatisch naar het detailgedeelte)
 11) Filter op type, grootte en gewicht
+12) Project is opgebouwd met Vite en heeft een correcte structuur (src/, index.html, …)
 
+## II. Gebruikte API:
 
-
-## Gebruikte technologieën:
-
-- HTML, CSS, JS
-- PokéAPI (https://pokeapi.co)
-- Vite
-- GitHub
-
-## Stappen installatie:
-
-1) Repository clonen 
-    git clone https://github.com/frs-bgh/pokemon-explorer.git 
-2) Vite runnen 
-    1. dependencies installeren 
-        npm install 
-    2. Start de dev server
-        npm run dev 
-3) Browser openen op http://localhost:5173 
-
-## Screenshots
-* Homepage 
-![homepage](image.png)
-
-* Zoekbalk
-![Zoekbalk](image-1.png)
-
-* Favorietenlijst
-![Favorieten](image-2.png)
-
-* Filtermenu
-![Filtermenu](image-3.png)
-
-
-## Gebruikte bronnen 
 PokéAPI --> https://pokeapi.co/api/v2/pokemon?limit=30
-ChatGPT (AI assistentie voor structuur en foutopsporing) --> https://chatgpt.com/share/682936bf-012c-8003-8cde-c3f4089e37df
-MDN scrollIntoView --> https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-Prismic Blog: CSS Image Effects --> https://prismic.io/blog/css-image-effects
-Add to favorites with JavaScript --> https://stackoverflow.com/questions/64830358/making-an-add-to-favorites-button-with-javascript 
-JavaScript multiple rating SVG star click --> https://stackoverflow.com/questions/66139955/javascript-multiple-rating-svg-star-click 
 
-## Technische vereisten
+## III. Technische vereisten + lijnnummers 
 
 1. DOM manipulatie:  
 
@@ -107,6 +71,7 @@ JavaScript multiple rating SVG star click --> https://stackoverflow.com/question
         (lijn 15, 111)
 
     J. Observer API (1 is voldoende)
+        Niet gebruikt in dit project
 
 3. Data & API:
 
@@ -119,6 +84,7 @@ JavaScript multiple rating SVG star click --> https://stackoverflow.com/question
 4. Opslag & validatie:
 
     A. Formulier validatie
+        Niet van toepassing in dit project
 
     B. Gebruik van LocalStorage 
     Favorieten worden opgeslagen in localStorage en bij het herladen wordt dit terug getoond + de ster wordt weer goud. (lijn 30, 71, 94, 165)
@@ -142,5 +108,47 @@ JavaScript multiple rating SVG star click --> https://stackoverflow.com/question
     B. Een correcte folderstructuur wordt aangehouden (gescheiden html, css en js files, src folder, dist folder, ...)
         Mijn project zit in Vite-structuur met src/main.js, src/style.css en index.html in de root. Alles zit goed appart
 
-## Auteur 
+## IV. Installatiehandleiding
+
+1) Repository clonen 
+    git clone https://github.com/frs-bgh/pokemon-explorer.git 
+
+2) Navigeer naar de map 
+    cd pokemon-explorer
+
+3) Vite runnen 
+
+    1. dependencies installeren 
+        npm install 
+
+    2. Start de dev server
+        npm run dev 
+
+4) Browser openen op http://localhost:5173 
+
+## V. Screenshots van de applicatie 
+
+* Homepage 
+![homepage](image.png)
+
+* Zoekbalk
+![Zoekbalk](image-1.png)
+
+* Favorietenlijst
+![Favorieten](image-2.png)
+
+* Filtermenu
+![Filtermenu](image-3.png)
+
+
+## VI. Gebruikte bronnen 
+
+PokéAPI --> https://pokeapi.co/api/v2/pokemon?limit=30
+ChatGPT (AI assistentie voor structuur en foutopsporing) --> https://chatgpt.com/share/682936bf-012c-8003-8cde-c3f4089e37df
+MDN scrollIntoView --> https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+Prismic Blog: CSS Image Effects --> https://prismic.io/blog/css-image-effects
+Add to favorites with JavaScript --> https://stackoverflow.com/questions/64830358/making-an-add-to-favorites-button-with-javascript 
+JavaScript multiple rating SVG star click --> https://stackoverflow.com/questions/66139955/javascript-multiple-rating-svg-star-click 
+
+### Auteur 
 Het werd gemaakt door Fariss Boughaba voor het vak Web Advanced aan Erasmushogeschool Brussel
