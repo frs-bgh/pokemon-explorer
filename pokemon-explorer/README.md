@@ -140,6 +140,15 @@ PokéAPI --> https://pokeapi.co/api/v2/pokemon?limit=30
 * Filtermenu
 ![Filtermenu](image-3.png)
 
+* Filter op type 
+![Filteroptype](image-4.png)
+
+* Filter op grootte
+![Filteropgrootte](image-5.png)
+
+* Filter op gewicht
+![Filteropgewicht](image-6.png)
+
 
 ## VI. Gebruikte bronnen 
 
